@@ -1,6 +1,8 @@
 section .data
-	msg: db 'Wut', 10
+	msg: db 'Wuts ur naem:', 10
 	len: equ $-msg
+	msg2: db 'Hello '
+	len2: equ $-msg2
 
 section .bss
 	inp_buff: resb 5
@@ -23,6 +25,13 @@ _start:
 	mov edx, 5
 	int 80h
 	
+	;prints hello
+	mov eax,4
+	mov ebx,1
+	mov ecx, msg2
+	mov edx, len2
+	int 80h
+
 	;Writes input
 	mov edx, 5
 	mov ecx, inp_buff
